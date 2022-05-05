@@ -1,0 +1,21 @@
+GET http://localhost:3000
+###
+
+GET http://localhost:3000/recipes/
+
+###
+
+GET http://localhost:3000/category/
+
+###
+
+GET http://localhost:3000/recipes/62710f7fe952ad26766c0aa3
+
+###
+
+GET http://localhost:3000/category/Kött
+
+
+###
+GET http://localhost:3000/recipes?search=Kött
+###

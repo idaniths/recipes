@@ -9,3 +9,7 @@ export const getRecipeByQuery = async (query: any) => {
         {"title" :{ '$regex' : query.search, '$options' : "i"} });
     
 }
+
+export const getRecipeById = async (id: string) => {
+    return await recipeModel.findById(id);
+}
