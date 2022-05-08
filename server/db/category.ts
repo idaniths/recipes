@@ -7,3 +7,10 @@ export const getAllcategory = async () => {
 export const getRecipesByCategory = async (category: string) => {
     return await recipeModel.find({category: category});
 }
+
+
+export const getRecipesByCategoryQuery = async (query: any) => {
+    return await recipeModel.find(
+        {"category" :{ '$regex' : query.search, '$options' : "i"} });
+        
+}

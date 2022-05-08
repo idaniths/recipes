@@ -1,5 +1,5 @@
 import express, {Request, Response, json}  from 'express';
-import {getAllcategory, getRecipesByCategory} from '../db/category';
+import {getAllcategory, getRecipesByCategory, getRecipesByCategoryQuery } from '../db/category';
 
 const router = express.Router();
 
@@ -15,5 +15,11 @@ router.get ('/:category', async (req: Request, res: Response) => {
         res.json(recipes);
     }
 });
+
+router.get('/:category/recipes/:abc', async (req: Request, res: Response) => {
+    const recipes = await getRecipesByCategoryQuery(req.params.category);
+    res.json(recipes);
+});
+
 
 export default router;
