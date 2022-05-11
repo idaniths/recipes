@@ -12,6 +12,18 @@ export async function fetchRecipes() {
 }
 
 export async function fetchRecipesByCategory(category: any) {
-    const response = await axios.get(`/category/${category}`);
-    return response;
-}
+    try{
+        const response = await axios.get(`/category/${category}`)
+        return response
+      } catch (error: any){
+        return error.response
+      }
+    }
+export async function fetchCategories(){
+    try{
+        const response = await axios.get('/category')
+        return response
+      }   catch (error: any){
+          return error.response
+        }
+        }

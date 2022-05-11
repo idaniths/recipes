@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react';
+import RecipeCard from './RecipeCard';
+
 
 
 
@@ -14,7 +16,7 @@ const RecipeList = () => {
         }, [])
     return (
         <div>
-            <h1>{recipes.map((recipe: any) => recipe.title)}</h1>
+           {recipes.map((recipe: any) => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard> )}
         </div>
     )
 }

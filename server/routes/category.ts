@@ -16,8 +16,8 @@ router.get ('/:category', async (req: Request, res: Response) => {
     }
 });
 
-router.get('/:category/recipes/:abc', async (req: Request, res: Response) => {
-    const recipes = await getRecipesByCategoryQuery(req.params.category);
+router.get('/:category/recipes', async (req: Request, res: Response) => {
+    const recipes = await getRecipesByCategoryQuery(req.params.category, req.query.search);
     res.json(recipes);
 });
 
