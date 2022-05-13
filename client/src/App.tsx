@@ -5,7 +5,7 @@ import RecipeList from './components/RecipeList';
 import Recipe from './components/SingleRecipe';
 import CategoryNav from './components/CategoryNav';
 import { Link } from 'react-router-dom';
-import RecipesFromCatergory from './components/RecipesFromCategory';
+import RecipesFromCatergoryList from './components/RecipesFromCategoryList';
 
 
 
@@ -25,7 +25,7 @@ const App = () => (
       <Route path="/" element={<RecipeList />} /> 
       <Route path="/category" element={<CategoryNav />} />
       <Route path="/recipes/:id" element={<Recipe />} />
-      <Route path="/category/:id" element={<RecipesFromCatergory />} />
+      <Route path="/category/:id" element={<RecipesFromCatergoryList />} />
       </Routes>
 
     </>

@@ -4,7 +4,7 @@ import {fetchRecipesByCategory} from "../api/fetches";
 import { useParams } from "react-router-dom";
 
 
-const RecipesFromCategory = () => {
+const RecipesFromCategoryList = () => {
     const [recipes, setRecipes] = useState([]);
     const {id} = useParams<any>();
     useEffect(() => {
@@ -16,4 +16,4 @@ const RecipesFromCategory = () => {
         </div>
     )
 }
-export default RecipesFromCategory;
+export default RecipesFromCategoryList;
