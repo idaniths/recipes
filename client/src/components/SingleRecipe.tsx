@@ -36,6 +36,7 @@ const Recipe = () => {
             <div>
                 <h2>{recipe.ingredients && recipe.ingredients.length} Ingredienser | {recipe.timeinMins} Minuter</h2>
             </div>
+            <div>
             <h2>Ingredients</h2>
                 <ul>
                     {recipe.ingredients && recipe.ingredients.map((ingredient:any) => (
@@ -46,7 +47,15 @@ const Recipe = () => {
                         </li>
                     ))}
                 </ul>
-            
+            <h2>Instructions</h2>
+            <ol>
+                {recipe.instructions && recipe.instructions.map((step:any) => (
+                    <li key={step.instruction}>
+                        {step.instruction}
+                    </li>
+                ))}
+            </ol>
+            </div>
         </StyledRecipe>
     )
 }

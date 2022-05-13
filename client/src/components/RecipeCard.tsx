@@ -7,9 +7,8 @@ const StyledRecipeCard = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10rem;
+    margin: 30px;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0px 0px 10px #ccc;
     
@@ -27,7 +26,7 @@ const RecipeCard = ({recipe}:any) => {
             <p>{recipe.description}</p>
         </div>
         <div>
-            <h2>{recipe.ingredients.length} Ingredienser | {recipe.timeinMins} Minuter</h2>
+            <h2>{recipe.ingredients.length} Ingredients | {recipe.timeinMins} Minutes</h2>
             {/* <Stars recipeRatings={recipe.ratings} recipeId={recipe._id} edit={false}/> */}
         </div>
     </StyledRecipeCard>

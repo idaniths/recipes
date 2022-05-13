@@ -1,5 +1,20 @@
 import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+
+
+const StyledCategoryNav = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & .nav-item{
+        :hover{
+            cursor: pointer;
+        }
+    }
+    `
 
 const CategoryNav = () => {
     const [showCategories, setShowCategories] = useState(false);
@@ -13,11 +28,14 @@ const CategoryNav = () => {
         fetchCategories();
         }, [])
     return (
+        <StyledCategoryNav>
+           
         <div>
-            <h3 className="nav-item" onClick={() => setShowCategories(!showCategories)}>Kategorier ▼</h3>
+            <h3 className="nav-item" onClick={() => setShowCategories(!showCategories)}>Categories ▼</h3>
             {showCategories && categories.map((category):any => <Link to={`/category/${category._id}`}> <p key={category}>{category._id} ({category.count})</p> </Link>)}
-            {/* {categories.map((category: any) => <h1 key={category}>{category}</h1>)} */}
+           
         </div>
+        </StyledCategoryNav>
     )
 }
 export default CategoryNav;
