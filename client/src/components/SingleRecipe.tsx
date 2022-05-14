@@ -8,11 +8,20 @@ const StyledRecipe = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 50%;
     margin: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0px 0px 10px #ccc;
+    img {
+        width: 80%;
+    }
+    li {
+        padding: 0.5rem;
+        padding-right: 7rem;
+        
+    }
     
     `
 
@@ -34,16 +43,14 @@ const Recipe = () => {
             <p>{recipe.description}</p>
             <img src={recipe.imageUrl} alt="" />
             <div>
-                <h2>{recipe.ingredients && recipe.ingredients.length} Ingredienser | {recipe.timeinMins} Minuter</h2>
+                <h2>{recipe.ingredients && recipe.ingredients.length} Ingredients | {recipe.timeinMins} Minutes</h2>
             </div>
             <div>
             <h2>Ingredients</h2>
                 <ul>
                     {recipe.ingredients && recipe.ingredients.map((ingredient:any) => (
                         <li key={ingredient.ingredient}>
-                            {ingredient.amount} 
-                            {ingredient.unit} 
-                            {ingredient.ingredient}
+                            {ingredient.amount} {ingredient.unit} {ingredient.ingredient}
                         </li>
                     ))}
                 </ul>

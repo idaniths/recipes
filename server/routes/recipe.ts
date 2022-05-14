@@ -1,5 +1,5 @@
 import express, {Request, Response, json}  from 'express';
-import {getAllRecipes, getRecipeByQuery, getRecipeById} from '../db/recipes';
+import {getAllRecipes, getRecipeByQuery, getRecipeById, pushRatingById} from '../db/recipes';
 
 
 const router = express.Router();
@@ -18,6 +18,11 @@ router.get ('/', async (req: Request, res: Response) => {
 router.get ('/:id', async (req: Request, res: Response) => {
     const recipe = await getRecipeById(req.params.id);
     res.json(recipe);
+});
+
+router.post('/:id/ratings', async (req: Request, res: Response) => {
+    const gottenRecipe = await pushRatingById(req.params.recipeId, req.body.rating);
+    res.status(200).json(gottenRecipe);
 });
 
 

@@ -13,3 +13,10 @@ export const getRecipeByQuery = async (query: any) => {
 export const getRecipeById = async (id: string) => {
     return await recipeModel.findById(id);
 }
+
+export const pushRatingById = async (id: string, rating: number) => {
+    const recipe = await recipeModel.findOneAndUpdate(
+        { _id: id },
+        { $push: { ratings: rating } },
+    );
+}
