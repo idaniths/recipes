@@ -7,8 +7,8 @@ import styled from 'styled-components';
 const StyledCategoryNav = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     & .nav-item{
         :hover{
             cursor: pointer;
@@ -31,7 +31,7 @@ const CategoryNav = () => {
         <StyledCategoryNav>
            
         <div>
-            <h3 className="nav-item" onClick={() => setShowCategories(!showCategories)}>Categories ▼</h3>
+            <h3 className="nav-item" onClick={() => setShowCategories(!showCategories)}>Categories</h3>
             {showCategories && categories.map((category):any => <Link to={`/category/${category._id}`}> <p key={category}>{category._id} ({category.count})</p> </Link>)}
            
         </div>

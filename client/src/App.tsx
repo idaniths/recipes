@@ -6,6 +6,7 @@ import Recipe from './components/SingleRecipe';
 import CategoryNav from './components/CategoryNav';
 import { Link } from 'react-router-dom';
 import RecipesFromCatergoryList from './components/RecipesFromCategoryList';
+import SearchRecipeViaCategory from './components/SearchRecipeViaCategory';
 
 
 
@@ -26,6 +27,7 @@ const App = () => (
       <Route path="/category" element={<CategoryNav />} />
       <Route path="/recipes/:id" element={<Recipe />} />
       <Route path="/category/:id" element={<RecipesFromCatergoryList />} />
+      <Route path="/search/:id" element={<SearchRecipeViaCategory />} />
       </Routes>
 
     </>

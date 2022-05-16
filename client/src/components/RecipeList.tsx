@@ -1,11 +1,7 @@
 import {useState, useEffect} from 'react';
 import RecipeCard from './RecipeCard';
 import CategoryNav from './CategoryNav';
-
-
-
- 
-
+// import SearchRecipeViaCategory from './SearchRecipeViaCategory';
 
 
 const RecipeList = () => {
@@ -21,6 +17,7 @@ const RecipeList = () => {
         .then(res => res.json())
         setRecipes(recipes);
     }
+    
     useEffect(() => {
         if(query) {
             searchForRecipes(query)
@@ -33,7 +30,7 @@ const RecipeList = () => {
             <form >
                 <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
             </form>
-            <CategoryNav />
+             <CategoryNav />
            {recipes.map((recipe: any) => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard> )}
         </div>
     )

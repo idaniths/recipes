@@ -14,7 +14,7 @@ export const getRecipeById = async (id: string) => {
     return await recipeModel.findById(id);
 }
 
-export const pushRatingById = async (id: string, rating: number) => {
+export const pushRatingById = async (id: any, rating: any) => {
     const recipe = await recipeModel.findOneAndUpdate(
         { _id: id },
         { $push: { ratings: rating } },

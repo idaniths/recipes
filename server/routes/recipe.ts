@@ -21,8 +21,8 @@ router.get ('/:id', async (req: Request, res: Response) => {
 });
 
 router.post('/:id/ratings', async (req: Request, res: Response) => {
-    const gottenRecipe = await pushRatingById(req.params.recipeId, req.body.rating);
-    res.status(200).json(gottenRecipe);
+    const recipe = await pushRatingById(req.params.id, req.body.rating);
+    res.status(200).json(recipe);
 });
 
 

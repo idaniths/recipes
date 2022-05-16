@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Ratings from "./Ratings";
 
 const StyledRecipeCard = styled.div`
     display: flex;
@@ -13,7 +14,7 @@ const StyledRecipeCard = styled.div`
     border-radius: 5px;
     box-shadow: 0px 0px 10px #ccc;
     img {
-        width: 40%;
+        width: 50%;
     }
     h2 {
         font-size: 1rem;
@@ -34,7 +35,8 @@ const RecipeCard = ({recipe}:any) => {
         </div>
         <div>
             <h2>{recipe.ingredients.length} Ingredients | {recipe.timeinMins} Minutes</h2>
-            {/* <Stars recipeRatings={recipe.ratings} recipeId={recipe._id} edit={false}/> */}
+            <Ratings recipeRatings={recipe.ratings} recipeId={recipe._id} edit={false}/>
+            <p className="ratings-number">{recipe.ratings.length} Ratings</p>
         </div>
     </StyledRecipeCard>
     )

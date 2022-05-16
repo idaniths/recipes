@@ -21,7 +21,5 @@ export const getRecipesByCategoryQuery = async (params: string, query: any) => {
         {category: params, 
             title: { $regex: query, $options: 'i' }});
 
-    return recipes;
-
-        
+    return recipes;   
 }
