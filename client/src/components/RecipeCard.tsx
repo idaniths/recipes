@@ -8,16 +8,25 @@ const StyledRecipeCard = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 40%;
-    margin: 30px;
+    max-width: 100%;
+    margin: 2rem;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 2px;
     box-shadow: 0px 0px 10px #ccc;
     img {
         width: 50%;
     }
-    h2 {
-        font-size: 1rem;
+    .title-and-img {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    h1 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 1rem;
     }
     
     `
@@ -27,7 +36,7 @@ const RecipeCard = ({recipe}:any) => {
     return(
         <StyledRecipeCard>
         <div>
-        <Link to={`/recipes/${recipe._id}`}>
+        <Link className="title-and-img" to={`/recipes/${recipe._id}`}>
             <h1>{recipe.title}</h1>
         <img src={recipe.imageUrl} alt="receptbild" />
         </Link>

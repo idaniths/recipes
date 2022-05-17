@@ -9,15 +9,20 @@ const StyledCategoryNav = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    text-decoration: none;
     & .nav-item{
         :hover{
             cursor: pointer;
         }
     }
+    & p{
+        margin: 0.5rem;
+        text-decoration: none;
+    }
     `
 
 const CategoryNav = () => {
-    const [showCategories, setShowCategories] = useState(false);
+    const [showCategories, setShowCategories] = useState(true);
     const [categories, setCategories] = useState<any[]>([]);
     useEffect(() => { 
         const fetchCategories = async () => {
@@ -31,7 +36,8 @@ const CategoryNav = () => {
         <StyledCategoryNav>
            
         <div>
-            <h3 className="nav-item" onClick={() => setShowCategories(!showCategories)}>Categories</h3>
+        {/* onClick={() => setShowCategories(!showCategories)} */}
+            {/* <h3 className="nav-item">Categories</h3> */}
             {showCategories && categories.map((category):any => <Link to={`/category/${category._id}`}> <p key={category}>{category._id} ({category.count})</p> </Link>)}
            
         </div>

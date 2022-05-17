@@ -6,7 +6,8 @@ import Recipe from './components/SingleRecipe';
 import CategoryNav from './components/CategoryNav';
 import { Link } from 'react-router-dom';
 import RecipesFromCatergoryList from './components/RecipesFromCategoryList';
-import SearchRecipeViaCategory from './components/SearchRecipeViaCategory';
+// import SearchRecipeViaCategory from './components/SearchRecipeViaCategory';
+import saftaMazal from './img/safta-mazal.jpg';
 
 
 
@@ -14,10 +15,14 @@ import SearchRecipeViaCategory from './components/SearchRecipeViaCategory';
 
 
 
-const App = () => (
+const App = (  ) => (
 
   <>
-      <h1 className="header">Safta Mazal Recipes</h1>
+    <div className='header-background'>
+    <header>
+      <h1 className="header-text">Safta Mazal's Recipes <img src={saftaMazal} alt="" /></h1>
+    </header>
+    </div>
       <Link to={'/'}><button>Home</button></Link>
       {/* <Link to={'/recipes'}><button>Recipes</button></Link> */}
       {/* <Link to={'/category'}><button>Category</button></Link> */}
@@ -27,7 +32,7 @@ const App = () => (
       <Route path="/category" element={<CategoryNav />} />
       <Route path="/recipes/:id" element={<Recipe />} />
       <Route path="/category/:id" element={<RecipesFromCatergoryList />} />
-      <Route path="/search/:id" element={<SearchRecipeViaCategory />} />
+      {/* <Route path="/search/:id" element={<SearchRecipeViaCategory />} /> */}
       </Routes>
 
     </>

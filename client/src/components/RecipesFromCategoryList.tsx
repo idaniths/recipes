@@ -13,6 +13,7 @@ const RecipesFromCategoryList = () => {
     useEffect(() => {
         // fetchRecipesByCategory(id).then(recipes => setRecipes(recipes.data));
         if(query) {
+            //.then means that the function will be executed after the fetch is done
             fetchRecipesByCategoryQuery(id, query).then(recipes => setRecipes(recipes.data));
         }
         else {
