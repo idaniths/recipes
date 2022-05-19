@@ -6,10 +6,11 @@ import styled from 'styled-components';
 
 const StyledCategoryNav = styled.div`
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
+    width: 100%;
     & .nav-item{
         :hover{
             cursor: pointer;
@@ -18,6 +19,13 @@ const StyledCategoryNav = styled.div`
     & p{
         margin: 0.5rem;
         text-decoration: none;
+        background-color: #fb3232;
+        color: white;
+        padding: 0.5rem;
+        border-radius: 20px;
+    }
+    & p:hover {
+        background-color: #971111;
     }
     `
 
@@ -35,12 +43,12 @@ const CategoryNav = () => {
     return (
         <StyledCategoryNav>
            
-        <div>
+        
         {/* onClick={() => setShowCategories(!showCategories)} */}
             {/* <h3 className="nav-item">Categories</h3> */}
             {showCategories && categories.map((category):any => <Link to={`/category/${category._id}`}> <p key={category}>{category._id} ({category.count})</p> </Link>)}
            
-        </div>
+      
         </StyledCategoryNav>
     )
 }

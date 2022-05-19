@@ -7,7 +7,7 @@ import CategoryNav from './components/CategoryNav';
 import { Link } from 'react-router-dom';
 import RecipesFromCatergoryList from './components/RecipesFromCategoryList';
 // import SearchRecipeViaCategory from './components/SearchRecipeViaCategory';
-import saftaMazal from './img/safta-mazal.jpg';
+// import saftaMazal from './img/safta-mazal.jpg';
 
 
 
@@ -18,12 +18,12 @@ import saftaMazal from './img/safta-mazal.jpg';
 const App = (  ) => (
 
   <>
-    <div className='header-background'>
+    {/* <div className='header-background'>
     <header>
       <h1 className="header-text">Safta Mazal's Recipes <img src={saftaMazal} alt="" /></h1>
     </header>
-    </div>
-      <Link to={'/'}><button>Home</button></Link>
+    </div> */}
+      
       {/* <Link to={'/recipes'}><button>Recipes</button></Link> */}
       {/* <Link to={'/category'}><button>Category</button></Link> */}
       

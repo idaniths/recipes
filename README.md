@@ -9,7 +9,6 @@ lPNQkHrQLnDPSOEr
 hummus
 jachnun
 falafel
-jachnun
 kubaneh
 zhug
 paprika fylld med ris

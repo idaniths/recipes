@@ -45,7 +45,7 @@ const Ratings = ({recipeRatings, recipeId, edit}: RatingProps) => {
         count={5}
         value={calculateAverage(recipeRatings)}
         onChange={ratingChanged}
-        size={30}
+        size={20}
         edit={edit}
         color1={emptyStarColor}
         color2={starColor}

@@ -3,10 +3,21 @@ import RecipeCard from './RecipeCard';
 import CategoryNav from './CategoryNav';
 // import SearchRecipeViaCategory from './SearchRecipeViaCategory';
 import styled from 'styled-components';
+import saftaMazal from '../img/safta-mazal.jpg';
+import background from '../img/background-image4.jpg';
+import { Link } from 'react-router-dom';
 
 
 const StyledRecipeList = styled.div`
-    .container {  display: grid;
+    .container{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* .container {  display: grid;
     grid-template-columns: 0.7fr 1.6fr 1fr; 
     grid-template-rows: 1fr 1fr 1fr; 
     gap: 0px 0px;
@@ -15,51 +26,84 @@ const StyledRecipeList = styled.div`
         "category recipes recipes"
         "category recipes recipes"
         "category recipes recipes";
-    }
+    } */
 
-    .category { 
+    /* .category { 
         grid-area: category; 
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-self: flex-start;
         position: absolute;
-        margin-top: 1rem;
-        margin-left: 1rem;
-        max-width: 100%;
-    }
+        padding: 1rem;
+        margin-left: 0.5rem;
+        border-radius: 2px;
+        box-shadow: 0px 0px 10px #ccc;
+        min-height: 100vh;
+    } */
 
     .recipes { 
         /* background-color: #919191; */
         grid-area: recipes; 
     }
+    
+    h3 {
+        margin-left: 0.5rem;
+    }
+    .header-background{
+  background-color: rgb(71, 71, 71);
+}
 
-    /* display: flex;
-    flex-direction: column; */
-    /* justify-content: center; */
-    /* align-items: center;
-    position: relative; */
-    & form {
+header{
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+  justify-content: center;
+  background-image: url(${background});
+  background-size: cover;
+  background-position: center;
+  height: 75vh;
+}
+
+.header-text{
+  display: flex;
+  flex-direction: row ;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin-left: 13rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgb(38, 38, 38);
+}
+.header-text img{
+  margin-left: 2rem;
+  max-width: 11rem;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: #fff solid 2px;
+  /* box-shadow: 0px 0px 5px #b4b4b4; */
+}
+& form {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    & form input {
+    form input {
         display: flex;
         border: 0px solid #ccc;
-        box-shadow: 0px 0px 10px #919191;
-        border-radius: 0.2rem;
+        box-shadow: 0px 0px 2px #515151;
+        border-radius: 1.2rem;
         padding: 10px;
-        width: 10rem;
-        margin: 1rem 0 1rem 0;
+        width: 25rem;
+        margin: 0rem 0 1rem 0;
+        align-self: center;
     }
-    & form:hover {
+    form:hover {
         
     }
-    & form input::placeholder {
-       text-align: center;
-       color: black;
+    form input::placeholder {
+       color: #313131;
        font-size: 1rem;
     }
    
@@ -88,17 +132,23 @@ const RecipeList = () => {
         }, [query])
     return (
         <StyledRecipeList>
-            <div className='container'>
-                <div className='recipes'>   
-                        {recipes.map((recipe: any) => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard> )}
-                </div> 
-                <div className='category'>
+            <div className='header-background'>
+                <header>
+                
+                    <Link to={"/"}><h1 className="header-text">Safta Mazal's Recipes <img src={saftaMazal} alt="" /></h1></Link>
                     <form >
                         <input type="text" placeholder="Search Recipe" value={query} onChange={(e) => setQuery(e.target.value)} />
                     </form>
-                    <h3>Categories</h3>
                     <CategoryNav/>
-                </div>
+                </header>
+            </div>
+            <div className='container'>
+                        {recipes.map((recipe: any) => <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard> )}
+                {/* <div className='recipes'>   
+                </div> 
+                <div className='category'>
+                    <h3>Categories</h3>
+                </div> */}
            </div>
         </StyledRecipeList>
     )
