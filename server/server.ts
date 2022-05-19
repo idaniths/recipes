@@ -7,18 +7,26 @@ import cors from 'cors'
 
 const url = "mongodb+srv://idan:lPNQkHrQLnDPSOEr@cluster0.stdjt.mongodb.net/recipesPage?retryWrites=true&w=majority"
 
-mongoose.connect(url)
-    .then( () => {
-        console.log('Connected to the database ')
+// mongoose.connect(url)
+
+if (process.env.MONGO_DB_CONNECTION_STRING) {
+    mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING).then(() => {
+        app.listen(port, () => console.log('listening to port: ' + port));
     })
-    .catch( (err) => {
-        console.error(`Error connecting to the database. n${err}`);
-    })
+} else {
+    console.log('Configuration MONGO_DB_CONNECTION_STRING not set')
+}
+    // .then( () => {
+    //     console.log('Connected to the database ')
+    // })
+    // .catch( (err) => {
+    //     console.error(`Error connecting to the database. n${err}`);
+    // })
 
 const app = express();
 app.use(json());
 app.use(cors());
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.get('/', (req: Request, res: Response) => {     
     res.send('HOOOO');
