@@ -7,7 +7,7 @@ import cors from 'cors'
 
 const url = "mongodb+srv://idan:lPNQkHrQLnDPSOEr@cluster0.stdjt.mongodb.net/recipesPage?retryWrites=true&w=majority"
 
-// mongoose.connect(url) skdljfg
+// mongoose.connect(url) 
 
 if (process.env.MONGO_DB_CONNECTION_STRING) {
     mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING).then(() => {
