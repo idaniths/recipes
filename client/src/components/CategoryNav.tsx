@@ -30,7 +30,6 @@ const StyledCategoryNav = styled.div`
     `
 
 const CategoryNav = () => {
-    const [showCategories, setShowCategories] = useState(true);
     const [categories, setCategories] = useState<any[]>([]);
     useEffect(() => { 
         const fetchCategories = async () => {
@@ -46,7 +45,7 @@ const CategoryNav = () => {
         
         {/* onClick={() => setShowCategories(!showCategories)} */}
             {/* <h3 className="nav-item">Categories</h3> */}
-            {showCategories && categories.map((category):any => <Link to={`/category/${category._id}`}> <p key={category}>{category._id} ({category.count})</p> </Link>)}
+            {categories.map((category):any => <Link to={`/category/${category._id}`}> <p key={category}>{category._id} ({category.count})</p> </Link>)}
            
       
         </StyledCategoryNav>
