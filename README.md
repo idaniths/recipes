@@ -15,5 +15,6 @@ paprika fylld med ris
 marokanska fisken 
 burekas
 givesh (balkan)
+shakshuka
 
 
