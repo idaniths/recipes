@@ -47,7 +47,7 @@ const CategoryNav = () => {
     
     useEffect(() => { 
         const fetchCategories = async () => {
-            const categories = await fetch('http://localhost:3000/category')
+            const categories = await fetch('https://saftamazalsrecipes.herokuapp.com/category')
             .then(res => res.json())
             setCategories(categories);
         }
