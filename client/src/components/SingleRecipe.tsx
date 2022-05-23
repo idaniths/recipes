@@ -125,7 +125,7 @@ const Recipe = () => {
     const { id } = useParams();
     useEffect(() => {
         const fetchRecipe = async () => {
-            const recipe = await fetch(`http://localhost:3000/recipes/${id}`)
+            const recipe = await fetch(`https://saftamazalsrecipes.herokuapp.com/recipes/${id}`)
             .then(res => res.json())  
             setRecipe(recipe);
         }
