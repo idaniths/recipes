@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Ratings from "./Ratings";
@@ -37,13 +36,12 @@ const StyledRecipeCard = styled.div`
         align-items: center;
         width: 100%;
         overflow: hidden;
-        /* margin-bottom: 1rem; */
+        border-radius: 5px;
     }
     & h1 {
         color: white;
         text-align: center;
         font-size: 2rem;
-        /* margin: 0.5rem; */
         width: 100%;
         text-shadow: 2px 2px 4px rgb(38, 38, 38);
     }
@@ -80,12 +78,7 @@ const RecipeCard = ({recipe}:any) => {
         <div className="image-box" style={bgStyling}>
             <h1>{recipe.title}</h1>
         </div>
-       
-        {/* <Link className="title-and-img" to={`/recipes/${recipe._id}`}> */}
-        
-            {/* <p>{recipe.description}</p> */}
-      
-        {/* <img src={recipe.imageUrl} alt="receptbild" /> */}
+    
         <div className="card-info">
             <h2>{recipe.ingredients.length} Ingredients | {recipe.timeinMins} Minutes</h2>
             <Ratings recipeRatings={recipe.ratings} recipeId={recipe._id} edit={false}/>

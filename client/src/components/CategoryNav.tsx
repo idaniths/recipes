@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -27,10 +28,23 @@ const StyledCategoryNav = styled.div`
     & p:hover {
         background-color: #971111;
     }
+    & .active{
+        background-color: #971111;
+    }
+    
     `
 
 const CategoryNav = () => {
+    //uselocation means that the parameter is available to us
+    const location = useLocation();
+    //.split means split the string into an array
+    const splitLocation = location.pathname.split('/')[2];
+    let splitLocationUrl =""
+    if(splitLocation){
+        splitLocationUrl = splitLocation.replace(/%20/g, " ");
+    }
     const [categories, setCategories] = useState<any[]>([]);
+    
     useEffect(() => { 
         const fetchCategories = async () => {
             const categories = await fetch('http://localhost:3000/category')
@@ -38,16 +52,16 @@ const CategoryNav = () => {
             setCategories(categories);
         }
         fetchCategories();
-        }, [])
+    }, [])
+   
     return (
         <StyledCategoryNav>
-           
-        
-        {/* onClick={() => setShowCategories(!showCategories)} */}
-            {/* <h3 className="nav-item">Categories</h3> */}
-            {categories.map((category):any => <Link to={`/category/${category._id}`}> <p key={category}>{category._id} ({category.count})</p> </Link>)}
-           
-      
+   
+            {categories.map((category):any => 
+            <Link to={`/category/${category._id}`} key={category._id}> 
+            <p className={category._id === splitLocationUrl ? "active": ""} key={category}>{category._id} ({category.count})</p>
+            </Link>)}
+
         </StyledCategoryNav>
     )
 }

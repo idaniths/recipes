@@ -1,8 +1,6 @@
   
 import ReactStars from 'react-stars'
-import React from 'react'
 import styled from 'styled-components'
-import { useState, useEffect } from 'react';
 import { postRating } from '../api/fetches';
 
 interface RatingProps {
