@@ -83,13 +83,13 @@ header{
 const RecipeList = () => {
     const [query, setQuery] = useState('');
     const searchForRecipes = async (query: string) => {
-        const recipes = await fetch(`http://localhost:3000/recipes?search=${query}`)
+        const recipes = await fetch(`https://saftamazalsrecipes.herokuapp.com/recipes?search=${query}`)
         .then(res => res.json())
         setRecipes (recipes);
     }
     const [recipes, setRecipes] = useState<any>([]);
     const fetchRecipes = async () => {
-        const recipes = await fetch('http://localhost:3000/recipes')
+        const recipes = await fetch('https://saftamazalsrecipes.herokuapp.com/recipes')
         .then(res => res.json())
         setRecipes(recipes);
     }
