@@ -18,7 +18,7 @@ const calculateAverage = (rating : any) => {
         else{
             return
         }
-    };
+    }; 
     const StyledStars = styled(ReactStars)`
     display: flex;
     justify-content: center;

@@ -151,9 +151,9 @@ const Recipe = () => {
                 </header>
             </div>
             <div className='recipe-container'>
-            <div className="image-box" style={bgStyling}>
-                <h1>{recipe.title}</h1>
-            </div>
+                <div className="image-box" style={bgStyling}>
+                    <h1>{recipe.title}</h1>
+                </div>
                 <div className='ingredients-rating'>
                     <h2>{recipe.ingredients && recipe.ingredients.length} Ingredients | {recipe.timeinMins} Minutes</h2>
 

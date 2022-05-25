@@ -41,6 +41,7 @@ const CategoryNav = () => {
     const splitLocation = location.pathname.split('/')[2];
     let splitLocationUrl =""
     if(splitLocation){
+        // /%20/ means that the url will be displayed with spaces and replace the %20 with a space
         splitLocationUrl = splitLocation.replace(/%20/g, " ");
     }
     const [categories, setCategories] = useState<any[]>([]);
